@@ -7,7 +7,6 @@ export default function FreelancerPortfolio() {
   const skills = [
     "Logo Design",
     "Web Development",
-    "UI/UX Design",
     "Social Media Marketing",
     "JavaScript",
     "React",
@@ -21,14 +20,24 @@ export default function FreelancerPortfolio() {
       relatedSkills: ["Logo Design"]
     },
     {
+      title: "Stitch by Stitch Logo",
+      description: "Logo for a friend's crocheting business.",
+      relatedSkills: ["Logo Design"]
+    },
+    {
       title: "Graduation Website",
       description: "Custom celebration site for my college graduation.",
-      relatedSkills: ["Web Development", "HTML/CSS", "React"]
+      relatedSkills: ["Web Development"]
     },
     {
       title: "Hybris Band Branding",
       description: "Logo and social strategy for my college band.",
-      relatedSkills: ["Logo Design", "Social Media Marketing"]
+      relatedSkills: ["Social Media Marketing"]
+    },
+    {
+      title: "On50 Apartments Social Media Accounts",
+      description: "Logo and social strategy for On50 Apartments.",
+      relatedSkills: ["Social Media Marketing"]
     }
   ];
 
