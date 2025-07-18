@@ -51,7 +51,7 @@ export default function FreelancerPortfolio() {
       collage: [
         { type: "image", src: "/images/on50_tiktok.PNG" },
         { type: "image", src: "/images/on50_ig.PNG" },
-        { type: "video", src: "/images/on50_video.mp4" }
+        { type: "video", src: "/images/on50_video.MOV" }
       ]
     }
   ];
