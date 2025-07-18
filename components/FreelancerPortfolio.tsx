@@ -26,7 +26,7 @@ export default function FreelancerPortfolio() {
       relatedSkills: ["Logo Design"],
       images: [
         { src: "/images/SxS_inspo.jpg", label: "Logo Inspiration Photo" },
-        { src: "/images/SxS_sketch.jpg", label: "Sketch" },
+        { src: "/images/SxS_sketch.jpeg", label: "Sketch" },
         { src: "/images/SxS_logo_image.png", label: "Final Logo Design" },
         { src: "/images/SxS_logo_text.png" }
       ]
@@ -42,7 +42,7 @@ export default function FreelancerPortfolio() {
       relatedSkills: ["Social Media Marketing"],
       media: [
         { src: "/images/hybris_photo.png", type: "image" },
-        { src: "/images/hybris_video.mov", type: "video" }
+        { src: "/images/hybris_video.MOV", type: "video" }
       ]
     },
     {
@@ -50,8 +50,8 @@ export default function FreelancerPortfolio() {
       description: "Logo and social strategy for On50 Apartments.",
       relatedSkills: ["Social Media Marketing"],
       media: [
-        { src: "/images/on50_1.jpg", type: "image" },
-        { src: "/images/on50_2.jpg", type: "image" },
+        { src: "/images/on50_ig.png", type: "image" },
+        { src: "/images/on50_tiktok.png", type: "image" },
         { src: "/images/on50_video.mov", type: "video" }
       ]
     }
@@ -171,9 +171,9 @@ export default function FreelancerPortfolio() {
       {/* Design Process Visualization */}
       <section className="relative z-10 w-full max-w-4xl mx-auto mb-20">
         <h2 className="text-2xl font-semibold mb-6 text-center" style={{ color: '#b76e79' }}>My Design Process</h2>
-        <div className="flex flex-wrap justify-between items-center gap-4 text-center">
+        <div className="flex flex-wrap justify-between items-center gap-6 text-center">
           {["Consultation", "Sketch", "Refine", "Finalize"].map((step, i, arr) => (
-            <div key={i} className="flex items-center gap-2">
+            <div key={i} className="flex items-center gap-4">
               <div className="flex flex-col items-center">
                 <div className="rounded-full w-20 h-20 flex items-center justify-center bg-[#b76e79] text-white text-lg font-bold">
                   {i + 1}
@@ -181,7 +181,7 @@ export default function FreelancerPortfolio() {
                 <p className="text-sm font-semibold text-gray-700 mt-2">{step}</p>
               </div>
               {i < arr.length - 1 && (
-                <span className="text-2xl text-[#b76e79]">→</span>
+                <span className="text-6xl text-[#b76e79] flex items-center justify-center">→</span>
               )}
             </div>
           ))}
