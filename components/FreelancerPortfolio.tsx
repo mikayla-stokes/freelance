@@ -14,12 +14,14 @@ export default function FreelancerPortfolio() {
     {
       title: "Stokes, Rees, & Co. Logo",
       description: "Professional logo for a CPA firm.",
-      relatedSkills: ["Logo Design"]
+      relatedSkills: ["Logo Design"],
+      images: ["/images/src_og.jpg", "/images/src_new.jpg"]
     },
     {
       title: "Stitch by Stitch Logo",
       description: "Logo for a friend's crocheting business.",
-      relatedSkills: ["Logo Design"]
+      relatedSkills: ["Logo Design"],
+      images: ["/images/SxS_inspo.jpg", "/images/SxS_sketch.jpg", "/images/SxS_logo.jpg"]
     },
     {
       title: "Graduation Website",
@@ -45,14 +47,14 @@ export default function FreelancerPortfolio() {
       {/* Side accents using bg.jpg with full opacity, wider size, and rose gold border */}
       <div className="absolute top-0 left-0 h-full w-40 z-0 border-r-4 border-[#b76e79]">
         <img
-          src="/images/bg.jpg"
+          src="/bg.jpg"
           alt="Left side detail"
           className="w-full h-full object-cover"
         />
       </div>
       <div className="absolute top-0 right-0 h-full w-40 z-0 border-l-4 border-[#b76e79]">
         <img
-          src="/images/bg.jpg"
+          src="/bg.jpg"
           alt="Right side detail"
           className="w-full h-full object-cover"
         />
@@ -101,7 +103,19 @@ export default function FreelancerPortfolio() {
                   <h3 className="text-lg font-bold mb-2" style={{ color: '#b76e79' }}>
                     {project.title}
                   </h3>
-                  <p className="text-gray-600">{project.description}</p>
+                  <p className="text-gray-600 mb-2">{project.description}</p>
+                  {project.images && (
+                    <div className="grid grid-cols-2 gap-2">
+                      {project.images.map((src, idx) => (
+                        <img
+                          key={idx}
+                          src={src}
+                          alt={`${project.title} ${idx + 1}`}
+                          className="rounded-lg border border-[#b76e79]"
+                        />
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
