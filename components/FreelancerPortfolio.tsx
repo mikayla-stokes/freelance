@@ -7,10 +7,7 @@ export default function FreelancerPortfolio() {
   const skills = [
     "Logo Design",
     "Web Development",
-    "Social Media Marketing",
-    "JavaScript",
-    "React",
-    "HTML/CSS"
+    "Social Media Marketing"
   ];
 
   const projects = [
@@ -87,40 +84,29 @@ export default function FreelancerPortfolio() {
         </div>
         {hoveredSkill && relatedProjects.length > 0 && (
           <motion.div
-            className="mt-8 grid md:grid-cols-2 gap-4"
+            className="mt-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
           >
-            {relatedProjects.map((project, i) => (
-              <div
-                key={i}
-                className="border border-[#b76e79] rounded-xl p-4 bg-white shadow"
-              >
-                <h3 className="text-lg font-bold mb-2" style={{ color: '#b76e79' }}>
-                  {project.title}
-                </h3>
-                <p className="text-gray-600">{project.description}</p>
-              </div>
-            ))}
+            <h3 className="text-xl font-bold text-center mb-4" style={{ color: '#b76e79' }}>
+              Projects
+            </h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {relatedProjects.map((project, i) => (
+                <div
+                  key={i}
+                  className="border border-[#b76e79] rounded-xl p-4 bg-white shadow"
+                >
+                  <h3 className="text-lg font-bold mb-2" style={{ color: '#b76e79' }}>
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-600">{project.description}</p>
+                </div>
+              ))}
+            </div>
           </motion.div>
         )}
-      </section>
-
-      <section className="relative z-10 w-full max-w-4xl mx-auto">
-        <h2 className="text-2xl font-semibold mb-6 text-center" style={{ color: '#b76e79' }}>Projects</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project, idx) => (
-            <motion.div
-              key={idx}
-              whileHover={{ scale: 1.02 }}
-              className="border border-[#b76e79] rounded-xl p-6 shadow-md bg-white hover:shadow-[0_0_20px_#b76e79] transition"
-            >
-              <h3 className="text-lg font-bold mb-2" style={{ color: '#b76e79' }}>{project.title}</h3>
-              <p className="text-gray-600">{project.description}</p>
-            </motion.div>
-          ))}
-        </div>
       </section>
 
       <footer className="relative z-10 mt-20 text-center text-gray-500 text-sm">
