@@ -15,24 +15,24 @@ export default function FreelancerPortfolio() {
   ];
 
   return (
-    <main className="min-h-screen bg-black text-white px-6 py-12 font-sans">
+    <main className="min-h-screen bg-white text-gray-800 px-6 py-12 font-sans">
       <section className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-pink-400">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#b76e79' }}>
           Mikayla Stokes
         </h1>
-        <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Freelance Designer & Developer | Logos, Websites, and Social Media Magic
         </p>
       </section>
 
       <section className="w-full max-w-4xl mx-auto">
-        <h2 className="text-2xl font-semibold text-pink-300 mb-6 text-center">Skills</h2>
+        <h2 className="text-2xl font-semibold mb-6 text-center" style={{ color: '#b76e79' }}>Skills</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           {skills.map((skill, i) => (
             <motion.div
               key={i}
-              whileHover={{ scale: 1.1 }}
-              className="bg-gray-800 p-4 rounded-2xl text-center shadow-xl cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              className="border-2 border-[#b76e79] bg-white p-4 rounded-2xl text-center shadow-lg cursor-pointer transition"
               onMouseEnter={() => setHoveredSkill(skill)}
               onMouseLeave={() => setHoveredSkill(null)}
             >
@@ -42,7 +42,8 @@ export default function FreelancerPortfolio() {
         </div>
         {hoveredSkill && (
           <motion.p
-            className="mt-6 text-center text-pink-300"
+            className="mt-6 text-center"
+            style={{ color: '#b76e79' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
