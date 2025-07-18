@@ -168,12 +168,11 @@ export default function FreelancerPortfolio() {
         )}
       </section>
 
-      {/* Design Process Visualization */}
       <section className="relative z-10 w-full max-w-4xl mx-auto mb-20">
         <h2 className="text-2xl font-semibold mb-6 text-center" style={{ color: '#b76e79' }}>My Design Process</h2>
-        <div className="flex flex-wrap justify-between items-center gap-6 text-center">
+        <div className="flex flex-wrap justify-center items-center gap-8 text-center">
           {["Consultation", "Sketch", "Refine", "Finalize"].map((step, i, arr) => (
-            <div key={i} className="flex items-center gap-4">
+            <div key={i} className="flex items-center gap-6">
               <div className="flex flex-col items-center">
                 <div className="rounded-full w-20 h-20 flex items-center justify-center bg-[#b76e79] text-white text-lg font-bold">
                   {i + 1}
@@ -181,14 +180,13 @@ export default function FreelancerPortfolio() {
                 <p className="text-sm font-semibold text-gray-700 mt-2">{step}</p>
               </div>
               {i < arr.length - 1 && (
-                <span className="text-6xl text-[#b76e79] flex items-center justify-center">→</span>
+                <span className="text-[#b76e79] text-6xl flex items-center justify-center">→</span>
               )}
             </div>
           ))}
         </div>
       </section>
 
-      {/* Tools & Software Used */}
       <section className="relative z-10 w-full max-w-4xl mx-auto mb-20">
         <h2 className="text-2xl font-semibold mb-6 text-center" style={{ color: '#b76e79' }}>Tools & Software Used</h2>
         <div className="flex flex-wrap justify-center gap-4">
