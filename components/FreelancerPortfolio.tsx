@@ -15,8 +15,13 @@ export default function FreelancerPortfolio() {
   ];
 
   return (
-    <main className="min-h-screen bg-white text-gray-800 px-6 py-12 font-sans">
-      <section className="text-center mb-16">
+    <main className="relative min-h-screen bg-white text-gray-800 px-6 py-12 font-sans overflow-hidden">
+      {/* Geometric accents */}
+      <div className="absolute top-0 left-0 w-64 h-64 bg-[#b76e79]/10 rounded-full transform -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#b76e79]/10 rotate-45 transform translate-x-1/3 translate-y-1/3 blur-3xl"></div>
+      <div className="absolute top-1/2 left-0 w-48 h-48 border-2 border-[#b76e79]/20 rounded-full transform -translate-y-1/2 -translate-x-1/2"></div>
+
+      <section className="relative z-10 text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#b76e79' }}>
           Mikayla Stokes
         </h1>
@@ -25,7 +30,7 @@ export default function FreelancerPortfolio() {
         </p>
       </section>
 
-      <section className="w-full max-w-4xl mx-auto">
+      <section className="relative z-10 w-full max-w-4xl mx-auto">
         <h2 className="text-2xl font-semibold mb-6 text-center" style={{ color: '#b76e79' }}>Skills</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           {skills.map((skill, i) => (
@@ -53,7 +58,7 @@ export default function FreelancerPortfolio() {
         )}
       </section>
 
-      <footer className="mt-20 text-center text-gray-500 text-sm">
+      <footer className="relative z-10 mt-20 text-center text-gray-500 text-sm">
         © {new Date().getFullYear()} Mikayla Stokes. All rights reserved.
       </footer>
     </main>
