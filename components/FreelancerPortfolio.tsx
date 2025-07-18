@@ -26,9 +26,9 @@ export default function FreelancerPortfolio() {
       relatedSkills: ["Logo Design"],
       images: [
         { src: "/images/SxS_inspo.jpg", label: "Logo Inspiration Photo" },
-        { src: "/images/SxS_sketch.jpg", label: "Sketch" },
+        { src: "/images/SxS_sketch.jpeg", label: "Sketch" },
         { src: "/images/SxS_logo_image.png", label: "Final Logo Design" },
-        { src: "/images/SxS_logo_text.png", label: "Final Logo Design" }
+        { src: "/images/SxS_logo_text.png" }
       ]
     },
     {
@@ -72,7 +72,7 @@ export default function FreelancerPortfolio() {
         <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#b76e79' }}>
           Mikayla Stokes
         </h1>
-        <h2 className="text-2xl md:text-5xl font-bold mb-4" style={{ color: 'gray' }}>
+        <h2 className="text-2xl md:text-2xl font-bold mb-2" style={{ color: 'gray' }}>
           Freelance Designer & Developer | Logos, Websites, and Social Media Marketing
         </h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
