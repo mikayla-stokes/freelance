@@ -31,8 +31,14 @@ export default function FreelancerPortfolio() {
 
   return (
     <main className="relative min-h-screen bg-white text-gray-800 px-6 py-12 font-sans overflow-hidden">
-      {/* Hexagon pattern background */}
-      <div className="absolute inset-0 z-0 bg-[url('/hexagon-pattern.svg')] bg-repeat opacity-5"></div>
+      {/* Rose gold geometric accent image */}
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] opacity-20 z-0">
+        <img
+          src="/bg.jpg"
+          alt="Geometric rose gold detail"
+          className="w-full h-full object-cover rounded-bl-3xl shadow-xl"
+        />
+      </div>
 
       <section className="relative z-10 text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#b76e79' }}>
