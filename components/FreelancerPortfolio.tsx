@@ -95,7 +95,9 @@ export default function FreelancerPortfolio() {
             <motion.div
               key={i}
               whileHover={{ scale: 1.05 }}
-              className={`border-2 border-[#b76e79] bg-white p-4 rounded-2xl text-center shadow-lg transition cursor-pointer ${selectedSkill === skill ? 'shadow-[0_0_15px_#b76e79]' : ''}`}
+              className={`border-2 border-[#b76e79] bg-white p-4 rounded-2xl text-center shadow-lg transition cursor-pointer ${
+                selectedSkill === skill ? 'shadow-[0_0_15px_#b76e79]' : ''
+              }`}
               onClick={() => setSelectedSkill(skill === selectedSkill ? null : skill)}
             >
               {skill}
@@ -171,8 +173,8 @@ export default function FreelancerPortfolio() {
       <section className="relative z-10 w-full max-w-4xl mx-auto mb-20">
         <h2 className="text-2xl font-semibold mb-6 text-center" style={{ color: '#b76e79' }}>My Design Process</h2>
         <div className="flex flex-wrap justify-center items-center gap-8 text-center">
-          {["Consultation", "Sketch", "Refine", "Finalize"].map((step, i, arr) => (
-            <div key={i} className="flex items-center gap-6">
+          {["Consultation", "Sketch/Demo", "Refine", "Finalize"].map((step, i, arr) => (
+            <div key={i} className="flex items-end gap-6 relative">
               <div className="flex flex-col items-center">
                 <div className="rounded-full w-20 h-20 flex items-center justify-center bg-[#b76e79] text-white text-2xl font-bold">
                   {i + 1}
@@ -180,8 +182,8 @@ export default function FreelancerPortfolio() {
                 <p className="text-sm font-semibold text-gray-700 mt-2">{step}</p>
               </div>
               {i < arr.length - 1 && (
-                <div className="flex items-center justify-center h-20">
-                  <span className="text-[#b76e79] text-6xl leading-[5rem]">→</span>
+                <div className="flex items-center" style={{ marginTop: "3.75rem" }}>
+                  <span className="text-[#b76e79] text-6xl leading-[1rem]">→</span>
                 </div>
               )}
             </div>
