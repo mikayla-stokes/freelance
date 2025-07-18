@@ -41,7 +41,7 @@ export default function FreelancerPortfolio() {
       relatedSkills: ["Social Media Marketing"],
       collage: [
         { type: "image", src: "/images/hybris_photo.jpg" },
-        { type: "video", src: "/images/hybris_video.mp4" }
+        { type: "video", src: "/images/hybris_video.MOV" }
       ]
     },
     {
@@ -49,8 +49,8 @@ export default function FreelancerPortfolio() {
       description: "Logo and social strategy for On50 Apartments.",
       relatedSkills: ["Social Media Marketing"],
       collage: [
-        { type: "image", src: "/images/on50_photo1.jpg" },
-        { type: "image", src: "/images/on50_photo2.jpg" },
+        { type: "image", src: "/images/on50_tiktok.PNG" },
+        { type: "image", src: "/images/on50_ig.PNG" },
         { type: "video", src: "/images/on50_video.mp4" }
       ]
     }
