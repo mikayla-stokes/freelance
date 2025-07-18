@@ -182,7 +182,7 @@ export default function FreelancerPortfolio() {
                 <p className="text-sm font-semibold text-gray-700 mt-2">{step}</p>
               </div>
               {i < arr.length - 1 && (
-                <div className="flex items-center" style={{ marginTop: "3.75rem" }}>
+                <div className="flex items-center" style={{ marginBottom: "3.75rem" }}>
                   <span className="text-[#b76e79] text-6xl leading-[1rem]">→</span>
                 </div>
               )}
