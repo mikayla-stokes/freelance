@@ -32,18 +32,18 @@ export default function FreelancerPortfolio() {
   return (
     <main className="relative min-h-screen bg-white text-gray-800 px-6 py-12 font-sans overflow-hidden">
       {/* Side accents using bg.jpg */}
-      <div className="absolute top-0 left-0 h-full w-32 opacity-20 z-0">
+      <div className="absolute top-0 left-0 h-full w-32 z-0">
         <img
           src="/bg.jpg"
           alt="Left side detail"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-40"
         />
       </div>
-      <div className="absolute top-0 right-0 h-full w-32 opacity-20 z-0">
+      <div className="absolute top-0 right-0 h-full w-32 z-0">
         <img
-          src="/public/bg.jpg"
+          src="/bg.jpg"
           alt="Right side detail"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-40"
         />
       </div>
 
