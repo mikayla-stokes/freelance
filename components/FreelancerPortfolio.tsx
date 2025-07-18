@@ -41,8 +41,8 @@ export default function FreelancerPortfolio() {
       description: "Logo and social strategy for my college band.",
       relatedSkills: ["Social Media Marketing"],
       media: [
-        { src: "/images/hybris_photo.png", type: "image" },
-        { src: "/images/hybris_video.MOV", type: "video" }
+        { src: "/images/hybris_video.MOV", type: "video" },
+        { src: "/images/hybris_photo.PNG", type: "image" }
       ]
     },
     {
@@ -50,9 +50,9 @@ export default function FreelancerPortfolio() {
       description: "Logo and social strategy for On50 Apartments.",
       relatedSkills: ["Social Media Marketing"],
       media: [
-        { src: "/images/on50_ig.png", type: "image" },
-        { src: "/images/on50_tiktok.png", type: "image" },
-        { src: "/images/on50_video.mov", type: "video" }
+        { src: "/images/on50_video.mov", type: "video" },
+        { src: "/images/on50_ig.PNG", type: "image" },
+        { src: "/images/on50_tiktok.PNG", type: "image" }
       ]
     }
   ];
@@ -171,7 +171,7 @@ export default function FreelancerPortfolio() {
       <section className="relative z-10 w-full max-w-4xl mx-auto mb-20">
         <h2 className="text-2xl font-semibold mb-6 text-center" style={{ color: '#b76e79' }}>My Design Process</h2>
         <div className="flex flex-wrap justify-center items-center gap-8 text-center">
-          {["Consultation", "Sketch", "Refine", "Finalize"].map((step, i, arr) => (
+          {["Consultation", "Sketch/Demo", "Refine", "Finalize"].map((step, i, arr) => (
             <div key={i} className="flex items-center gap-6">
               <div className="flex flex-col items-center">
                 <div className="rounded-full w-20 h-20 flex items-center justify-center bg-[#b76e79] text-white text-lg font-bold">
@@ -180,7 +180,9 @@ export default function FreelancerPortfolio() {
                 <p className="text-sm font-semibold text-gray-700 mt-2">{step}</p>
               </div>
               {i < arr.length - 1 && (
-                <span className="text-[#b76e79] text-6xl flex items-center justify-center">→</span>
+                <div className="flex items-center justify-center h-20">
+                  <span className="text-[#b76e79] text-6xl leading-none">→</span>
+                </div>
               )}
             </div>
           ))}
