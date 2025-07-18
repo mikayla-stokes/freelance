@@ -17,17 +17,22 @@ export default function FreelancerPortfolio() {
   const projects = [
     {
       title: "Stokes, Rees, & Co. Logo",
-      description: "Professional logo for a CPA firm."
+      description: "Professional logo for a CPA firm.",
+      relatedSkills: ["Logo Design"]
     },
     {
       title: "Graduation Website",
-      description: "Custom celebration site for my college graduation."
+      description: "Custom celebration site for my college graduation.",
+      relatedSkills: ["Web Development", "HTML/CSS", "React"]
     },
     {
       title: "Hybris Band Branding",
-      description: "Logo and social strategy for my college band."
+      description: "Logo and social strategy for my college band.",
+      relatedSkills: ["Logo Design", "Social Media Marketing"]
     }
   ];
+
+  const relatedProject = projects.find(project => project.relatedSkills.includes(hoveredSkill || ""));
 
   return (
     <main className="relative min-h-screen bg-white text-gray-800 px-6 py-12 font-sans overflow-hidden">
@@ -71,16 +76,16 @@ export default function FreelancerPortfolio() {
             </motion.div>
           ))}
         </div>
-        {hoveredSkill && (
-          <motion.p
-            className="mt-6 text-center"
-            style={{ color: '#b76e79' }}
+        {hoveredSkill && relatedProject && (
+          <motion.div
+            className="mt-8 border border-[#b76e79] rounded-xl p-4 bg-white shadow"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
           >
-            Passionate about {hoveredSkill.toLowerCase()}.
-          </motion.p>
+            <h3 className="text-lg font-bold mb-2" style={{ color: '#b76e79' }}>{relatedProject.title}</h3>
+            <p className="text-gray-600">{relatedProject.description}</p>
+          </motion.div>
         )}
       </section>
 
