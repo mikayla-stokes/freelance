@@ -31,12 +31,19 @@ export default function FreelancerPortfolio() {
 
   return (
     <main className="relative min-h-screen bg-white text-gray-800 px-6 py-12 font-sans overflow-hidden">
-      {/* Rose gold geometric accent image */}
-      <div className="absolute top-0 right-0 w-[300px] h-[300px] opacity-20 z-0">
+      {/* Side accents using bg.jpg */}
+      <div className="absolute top-0 left-0 h-full w-32 opacity-20 z-0">
         <img
           src="/bg.jpg"
-          alt="Geometric rose gold detail"
-          className="w-full h-full object-cover rounded-bl-3xl shadow-xl"
+          alt="Left side detail"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="absolute top-0 right-0 h-full w-32 opacity-20 z-0">
+        <img
+          src="/bg.jpg"
+          alt="Right side detail"
+          className="w-full h-full object-cover"
         />
       </div>
 
