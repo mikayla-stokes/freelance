@@ -14,12 +14,39 @@ export default function FreelancerPortfolio() {
     "HTML/CSS"
   ];
 
+  const projects = [
+    {
+      title: "Stokes, Rees, & Co. Logo",
+      description: "Professional logo for a CPA firm."
+    },
+    {
+      title: "Graduation Website",
+      description: "Custom celebration site for my college graduation."
+    },
+    {
+      title: "Hybris Band Branding",
+      description: "Logo and social strategy for my college band."
+    }
+  ];
+
   return (
     <main className="relative min-h-screen bg-white text-gray-800 px-6 py-12 font-sans overflow-hidden">
-      {/* Geometric accents */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-[#b76e79]/10 rounded-full transform -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#b76e79]/10 rotate-45 transform translate-x-1/3 translate-y-1/3 blur-3xl"></div>
-      <div className="absolute top-1/2 left-0 w-48 h-48 border-2 border-[#b76e79]/20 rounded-full transform -translate-y-1/2 -translate-x-1/2"></div>
+      {/* Animated geometric accents */}
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ repeat: Infinity, duration: 60, ease: "linear" }}
+        className="absolute top-0 left-0 w-64 h-64 bg-[#b76e79]/10 rounded-full transform -translate-x-1/2 -translate-y-1/2 blur-3xl"
+      ></motion.div>
+      <motion.div
+        animate={{ rotate: -360 }}
+        transition={{ repeat: Infinity, duration: 90, ease: "linear" }}
+        className="absolute bottom-0 right-0 w-96 h-96 bg-[#b76e79]/10 rotate-45 transform translate-x-1/3 translate-y-1/3 blur-3xl"
+      ></motion.div>
+      <motion.div
+        animate={{ scale: [1, 1.1, 1] }}
+        transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
+        className="absolute top-1/2 left-0 w-48 h-48 border-2 border-[#b76e79]/20 rounded-full transform -translate-y-1/2 -translate-x-1/2"
+      ></motion.div>
 
       <section className="relative z-10 text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#b76e79' }}>
@@ -30,14 +57,14 @@ export default function FreelancerPortfolio() {
         </p>
       </section>
 
-      <section className="relative z-10 w-full max-w-4xl mx-auto">
+      <section className="relative z-10 w-full max-w-4xl mx-auto mb-20">
         <h2 className="text-2xl font-semibold mb-6 text-center" style={{ color: '#b76e79' }}>Skills</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           {skills.map((skill, i) => (
             <motion.div
               key={i}
               whileHover={{ scale: 1.05 }}
-              className="border-2 border-[#b76e79] bg-white p-4 rounded-2xl text-center shadow-lg cursor-pointer transition"
+              className="border-2 border-[#b76e79] bg-white p-4 rounded-2xl text-center shadow-lg hover:shadow-[0_0_15px_#b76e79] transition cursor-pointer"
               onMouseEnter={() => setHoveredSkill(skill)}
               onMouseLeave={() => setHoveredSkill(null)}
             >
@@ -56,6 +83,22 @@ export default function FreelancerPortfolio() {
             Passionate about {hoveredSkill.toLowerCase()}.
           </motion.p>
         )}
+      </section>
+
+      <section className="relative z-10 w-full max-w-4xl mx-auto">
+        <h2 className="text-2xl font-semibold mb-6 text-center" style={{ color: '#b76e79' }}>Projects</h2>
+        <div className="grid md:grid-cols-2 gap-6">
+          {projects.map((project, idx) => (
+            <motion.div
+              key={idx}
+              whileHover={{ scale: 1.02 }}
+              className="border border-[#b76e79] rounded-xl p-6 shadow-md bg-white hover:shadow-[0_0_20px_#b76e79] transition"
+            >
+              <h3 className="text-lg font-bold mb-2" style={{ color: '#b76e79' }}>{project.title}</h3>
+              <p className="text-gray-600">{project.description}</p>
+            </motion.div>
+          ))}
+        </div>
       </section>
 
       <footer className="relative z-10 mt-20 text-center text-gray-500 text-sm">
