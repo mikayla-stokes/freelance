@@ -27,7 +27,8 @@ export default function FreelancerPortfolio() {
       images: [
         { src: "/images/SxS_inspo.jpg", label: "Logo Inspiration Photo" },
         { src: "/images/SxS_sketch.jpg", label: "Sketch" },
-        { src: "/images/SxS_logo.jpg", label: "Final Logo Design" }
+        { src: "/images/SxS_logo_image.png", label: "Final Logo Design" },
+        { src: "/images/SxS_logo_text.png"}
       ]
     },
     {
@@ -39,19 +40,19 @@ export default function FreelancerPortfolio() {
       title: "Hybris Band Branding",
       description: "Logo and social strategy for my college band.",
       relatedSkills: ["Social Media Marketing"],
-      collage: [
-        { type: "image", src: "/images/hybris_photo.jpg" },
-        { type: "video", src: "/images/hybris_video.MOV" }
+      media: [
+        { src: "/images/hybris_photo.jpg", type: "image" },
+        { src: "/images/hybris_video.mov", type: "video" }
       ]
     },
     {
       title: "On50 Apartments Social Media Accounts",
       description: "Logo and social strategy for On50 Apartments.",
       relatedSkills: ["Social Media Marketing"],
-      collage: [
-        { type: "image", src: "/images/on50_tiktok.PNG" },
-        { type: "image", src: "/images/on50_ig.PNG" },
-        { type: "video", src: "/images/on50_video.MOV" }
+      media: [
+        { src: "/images/on50_1.jpg", type: "image" },
+        { src: "/images/on50_2.jpg", type: "image" },
+        { src: "/images/on50_video.mov", type: "video" }
       ]
     }
   ];
@@ -60,7 +61,6 @@ export default function FreelancerPortfolio() {
 
   return (
     <main className="relative min-h-screen bg-white text-gray-800 px-6 py-12 font-sans overflow-hidden">
-      {/* Side accents using bg.jpg with full opacity, wider size, and rose gold border */}
       <div className="absolute top-0 left-0 h-full w-40 z-0 border-r-4 border-[#b76e79]">
         <img
           src="/images/bg.jpg"
@@ -76,12 +76,15 @@ export default function FreelancerPortfolio() {
         />
       </div>
 
-      <section className="relative z-10 text-center mb-16">
+      <section className="relative z-10 text-center mb-10">
         <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#b76e79' }}>
           Mikayla Stokes
         </h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Freelance Designer & Developer | Logos, Websites, and Social Media Marketing
+        </p>
+        <p className="text-md text-gray-500 mt-4 italic">
+          Explore my work by selecting a skill below
         </p>
       </section>
 
@@ -99,6 +102,7 @@ export default function FreelancerPortfolio() {
             </motion.div>
           ))}
         </div>
+
         {selectedSkill && relatedProjects.length > 0 && (
           <motion.div
             className="mt-10"
@@ -133,25 +137,25 @@ export default function FreelancerPortfolio() {
                       ))}
                     </div>
                   )}
-                  {project.collage && (
-                    <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
-                      {project.collage.map((media, index) => (
-                        media.type === "video" ? (
+                  {project.media && (
+                    <div className="flex flex-wrap gap-4 mt-4 items-start">
+                      {project.media.map((item, idx) => (
+                        item.type === "image" ? (
+                          <img
+                            key={idx}
+                            src={item.src}
+                            alt="Project media"
+                            className="rounded-lg border border-[#b76e79] w-40"
+                          />
+                        ) : (
                           <video
-                            key={index}
-                            src={media.src}
+                            key={idx}
+                            src={item.src}
+                            className="rounded-lg border border-[#b76e79] w-full max-w-md"
                             autoPlay
                             loop
                             muted
                             playsInline
-                            className="w-full rounded-lg border border-[#b76e79]"
-                          />
-                        ) : (
-                          <img
-                            key={index}
-                            src={media.src}
-                            alt="Project Media"
-                            className="w-full rounded-lg border border-[#b76e79]"
                           />
                         )
                       ))}
@@ -162,6 +166,36 @@ export default function FreelancerPortfolio() {
             </div>
           </motion.div>
         )}
+      </section>
+
+      {/* Design Process Visualization */}
+      <section className="relative z-10 w-full max-w-4xl mx-auto mb-20">
+        <h2 className="text-2xl font-semibold mb-6 text-center" style={{ color: '#b76e79' }}>My Design Process</h2>
+        <div className="flex flex-wrap justify-between items-center gap-4 text-center">
+          {['Consultation', 'Sketch', 'Refine', 'Finalize'].map((step, i) => (
+            <div key={i} className="flex-1 min-w-[120px]">
+              <div className="rounded-full w-20 h-20 mx-auto mb-2 flex items-center justify-center bg-[#b76e79] text-white text-lg font-bold">
+                {i + 1}
+              </div>
+              <p className="text-sm font-semibold text-gray-700">{step}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Tools & Software Used */}
+      <section className="relative z-10 w-full max-w-4xl mx-auto mb-20">
+        <h2 className="text-2xl font-semibold mb-6 text-center" style={{ color: '#b76e79' }}>Tools & Software Used</h2>
+        <div className="flex flex-wrap justify-center gap-4">
+          {["Canva", "PicCollage", "Video Pad", "JavaScript", "Python", "HTML/CSS", "React", "VS Code"].map((tool, idx) => (
+            <div
+              key={idx}
+              className="px-4 py-2 border border-[#b76e79] rounded-xl text-sm text-[#b76e79] bg-white shadow"
+            >
+              {tool}
+            </div>
+          ))}
+        </div>
       </section>
 
       <footer className="relative z-10 mt-20 text-center text-gray-500 text-sm">
