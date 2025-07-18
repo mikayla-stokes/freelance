@@ -52,7 +52,7 @@ export default function FreelancerPortfolio() {
           Mikayla Stokes
         </h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Freelance Designer & Developer | Logos, Websites, and Social Media Magic
+          Freelance Designer & Developer | Logos, Websites, and Social Media Marketing
         </p>
       </section>
 
