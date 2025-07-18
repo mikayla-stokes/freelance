@@ -45,14 +45,14 @@ export default function FreelancerPortfolio() {
       {/* Side accents using bg.jpg with full opacity, wider size, and rose gold border */}
       <div className="absolute top-0 left-0 h-full w-40 z-0 border-r-4 border-[#b76e79]">
         <img
-          src="/bg.jpg"
+          src="/images/bg.jpg"
           alt="Left side detail"
           className="w-full h-full object-cover"
         />
       </div>
       <div className="absolute top-0 right-0 h-full w-40 z-0 border-l-4 border-[#b76e79]">
         <img
-          src="/bg.jpg"
+          src="/images/bg.jpg"
           alt="Right side detail"
           className="w-full h-full object-cover"
         />
