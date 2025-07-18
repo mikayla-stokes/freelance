@@ -28,7 +28,7 @@ export default function FreelancerPortfolio() {
         { src: "/images/SxS_inspo.jpg", label: "Logo Inspiration Photo" },
         { src: "/images/SxS_sketch.jpg", label: "Sketch" },
         { src: "/images/SxS_logo_image.png", label: "Final Logo Design" },
-        { src: "/images/SxS_logo_text.png"}
+        { src: "/images/SxS_logo_text.png" }
       ]
     },
     {
@@ -41,7 +41,7 @@ export default function FreelancerPortfolio() {
       description: "Logo and social strategy for my college band.",
       relatedSkills: ["Social Media Marketing"],
       media: [
-        { src: "/images/hybris_photo.jpg", type: "image" },
+        { src: "/images/hybris_photo.png", type: "image" },
         { src: "/images/hybris_video.mov", type: "video" }
       ]
     },
@@ -127,10 +127,10 @@ export default function FreelancerPortfolio() {
                     <div className="space-y-4">
                       {project.images.map((img, idx) => (
                         <div key={idx}>
-                          <h4 className="text-sm font-semibold text-[#b76e79] mb-1">{img.label}</h4>
+                          {img.label && <h4 className="text-sm font-semibold text-[#b76e79] mb-1">{img.label}</h4>}
                           <img
                             src={img.src}
-                            alt={img.label}
+                            alt={img.label || 'Project image'}
                             className="rounded-lg border border-[#b76e79]"
                           />
                         </div>
@@ -172,12 +172,17 @@ export default function FreelancerPortfolio() {
       <section className="relative z-10 w-full max-w-4xl mx-auto mb-20">
         <h2 className="text-2xl font-semibold mb-6 text-center" style={{ color: '#b76e79' }}>My Design Process</h2>
         <div className="flex flex-wrap justify-between items-center gap-4 text-center">
-          {['Consultation', 'Sketch', 'Refine', 'Finalize'].map((step, i) => (
-            <div key={i} className="flex-1 min-w-[120px]">
-              <div className="rounded-full w-20 h-20 mx-auto mb-2 flex items-center justify-center bg-[#b76e79] text-white text-lg font-bold">
-                {i + 1}
+          {["Consultation", "Sketch", "Refine", "Finalize"].map((step, i, arr) => (
+            <div key={i} className="flex items-center gap-2">
+              <div className="flex flex-col items-center">
+                <div className="rounded-full w-20 h-20 flex items-center justify-center bg-[#b76e79] text-white text-lg font-bold">
+                  {i + 1}
+                </div>
+                <p className="text-sm font-semibold text-gray-700 mt-2">{step}</p>
               </div>
-              <p className="text-sm font-semibold text-gray-700">{step}</p>
+              {i < arr.length - 1 && (
+                <span className="text-2xl text-[#b76e79]">→</span>
+              )}
             </div>
           ))}
         </div>
