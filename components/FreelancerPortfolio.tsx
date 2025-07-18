@@ -31,22 +31,8 @@ export default function FreelancerPortfolio() {
 
   return (
     <main className="relative min-h-screen bg-white text-gray-800 px-6 py-12 font-sans overflow-hidden">
-      {/* Animated geometric accents */}
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ repeat: Infinity, duration: 60, ease: "linear" }}
-        className="absolute top-0 left-0 w-64 h-64 bg-[#b76e79]/10 rounded-full transform -translate-x-1/2 -translate-y-1/2 blur-3xl"
-      ></motion.div>
-      <motion.div
-        animate={{ rotate: -360 }}
-        transition={{ repeat: Infinity, duration: 90, ease: "linear" }}
-        className="absolute bottom-0 right-0 w-96 h-96 bg-[#b76e79]/10 rotate-45 transform translate-x-1/3 translate-y-1/3 blur-3xl"
-      ></motion.div>
-      <motion.div
-        animate={{ scale: [1, 1.1, 1] }}
-        transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
-        className="absolute top-1/2 left-0 w-48 h-48 border-2 border-[#b76e79]/20 rounded-full transform -translate-y-1/2 -translate-x-1/2"
-      ></motion.div>
+      {/* Hexagon pattern background */}
+      <div className="absolute inset-0 z-0 bg-[url('/hexagon-pattern.svg')] bg-repeat opacity-5"></div>
 
       <section className="relative z-10 text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#b76e79' }}>
