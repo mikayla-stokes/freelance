@@ -27,7 +27,8 @@ export default function FreelancerPortfolio() {
       images: [
         { src: "/images/SxS_inspo.jpg", label: "Logo Inspiration Photo" },
         { src: "/images/SxS_sketch.jpg", label: "Sketch" },
-        { src: "/images/SxS_logo.jpg", label: "Final Logo Design" }
+        { src: "/images/SxS_logo_image.png", label: "Final Logo Design" },
+        { src: "/images/SxS_logo_text.png", label: "Final Logo Design" }
       ]
     },
     {
