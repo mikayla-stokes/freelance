@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 export default function FreelancerPortfolio() {
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
 
   const skills = [
     "Logo Design",
@@ -47,7 +47,7 @@ export default function FreelancerPortfolio() {
     }
   ];
 
-  const relatedProjects = projects.filter(project => project.relatedSkills.includes(hoveredSkill || ""));
+  const relatedProjects = projects.filter(project => project.relatedSkills.includes(selectedSkill || ""));
 
   return (
     <main className="relative min-h-screen bg-white text-gray-800 px-6 py-12 font-sans overflow-hidden">
@@ -83,15 +83,14 @@ export default function FreelancerPortfolio() {
             <motion.div
               key={i}
               whileHover={{ scale: 1.05 }}
-              className="border-2 border-[#b76e79] bg-white p-4 rounded-2xl text-center shadow-lg hover:shadow-[0_0_15px_#b76e79] transition cursor-pointer"
-              onMouseEnter={() => setHoveredSkill(skill)}
-              onMouseLeave={() => setHoveredSkill(null)}
+              className={`border-2 border-[#b76e79] bg-white p-4 rounded-2xl text-center shadow-lg transition cursor-pointer ${selectedSkill === skill ? 'shadow-[0_0_15px_#b76e79]' : ''}`}
+              onClick={() => setSelectedSkill(skill === selectedSkill ? null : skill)}
             >
               {skill}
             </motion.div>
           ))}
         </div>
-        {hoveredSkill && relatedProjects.length > 0 && (
+        {selectedSkill && relatedProjects.length > 0 && (
           <motion.div
             className="mt-10"
             initial={{ opacity: 0 }}
