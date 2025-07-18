@@ -41,7 +41,7 @@ export default function FreelancerPortfolio() {
       </div>
       <div className="absolute top-0 right-0 h-full w-32 opacity-20 z-0">
         <img
-          src="/bg.jpg"
+          src="/public/bg.jpg"
           alt="Right side detail"
           className="w-full h-full object-cover"
         />
