@@ -26,9 +26,8 @@ export default function FreelancerPortfolio() {
       relatedSkills: ["Logo Design"],
       images: [
         { src: "/images/SxS_inspo.jpg", label: "Logo Inspiration Photo" },
-        { src: "/images/SxS_sketch.jpeg", label: "Sketch" },
-        { src: "/images/SxS_logo_image.png", label: "Final Logo Design" },
-        { src: "/images/SxS_logo_text.png" }
+        { src: "/images/SxS_sketch.jpg", label: "Sketch" },
+        { src: "/images/SxS_logo.jpg", label: "Final Logo Design" }
       ]
     },
     {
@@ -39,12 +38,21 @@ export default function FreelancerPortfolio() {
     {
       title: "Hybris Band Branding",
       description: "Logo and social strategy for my college band.",
-      relatedSkills: ["Social Media Marketing"]
+      relatedSkills: ["Social Media Marketing"],
+      collage: [
+        { type: "image", src: "/images/hybris_photo.jpg" },
+        { type: "video", src: "/images/hybris_video.mp4" }
+      ]
     },
     {
       title: "On50 Apartments Social Media Accounts",
       description: "Logo and social strategy for On50 Apartments.",
-      relatedSkills: ["Social Media Marketing"]
+      relatedSkills: ["Social Media Marketing"],
+      collage: [
+        { type: "image", src: "/images/on50_photo1.jpg" },
+        { type: "image", src: "/images/on50_photo2.jpg" },
+        { type: "video", src: "/images/on50_video.mp4" }
+      ]
     }
   ];
 
@@ -72,11 +80,8 @@ export default function FreelancerPortfolio() {
         <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#b76e79' }}>
           Mikayla Stokes
         </h1>
-        <h2 className="text-2xl md:text-2xl font-bold mb-2" style={{ color: 'gray' }}>
-          Freelance Designer & Developer | Logos, Websites, and Social Media Marketing
-        </h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Select a skill to see examples of projects I have completed related to that skill.
+          Freelance Designer & Developer | Logos, Websites, and Social Media Marketing
         </p>
       </section>
 
@@ -125,6 +130,30 @@ export default function FreelancerPortfolio() {
                             className="rounded-lg border border-[#b76e79]"
                           />
                         </div>
+                      ))}
+                    </div>
+                  )}
+                  {project.collage && (
+                    <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
+                      {project.collage.map((media, index) => (
+                        media.type === "video" ? (
+                          <video
+                            key={index}
+                            src={media.src}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full rounded-lg border border-[#b76e79]"
+                          />
+                        ) : (
+                          <img
+                            key={index}
+                            src={media.src}
+                            alt="Project Media"
+                            className="w-full rounded-lg border border-[#b76e79]"
+                          />
+                        )
                       ))}
                     </div>
                   )}
