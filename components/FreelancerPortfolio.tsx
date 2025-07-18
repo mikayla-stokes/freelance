@@ -71,8 +71,11 @@ export default function FreelancerPortfolio() {
         <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#b76e79' }}>
           Mikayla Stokes
         </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <h2 className="text-2xl md:text-5xl font-bold mb-4" style={{ color: 'gray' }}>
           Freelance Designer & Developer | Logos, Websites, and Social Media Marketing
+        </h2>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          Select a skill to see examples of projects I have completed related to that skill.
         </p>
       </section>
 
