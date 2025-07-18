@@ -41,7 +41,7 @@ export default function FreelancerPortfolio() {
     }
   ];
 
-  const relatedProject = projects.find(project => project.relatedSkills.includes(hoveredSkill || ""));
+  const relatedProjects = projects.filter(project => project.relatedSkills.includes(hoveredSkill || ""));
 
   return (
     <main className="relative min-h-screen bg-white text-gray-800 px-6 py-12 font-sans overflow-hidden">
@@ -85,15 +85,24 @@ export default function FreelancerPortfolio() {
             </motion.div>
           ))}
         </div>
-        {hoveredSkill && relatedProject && (
+        {hoveredSkill && relatedProjects.length > 0 && (
           <motion.div
-            className="mt-8 border border-[#b76e79] rounded-xl p-4 bg-white shadow"
+            className="mt-8 grid md:grid-cols-2 gap-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
           >
-            <h3 className="text-lg font-bold mb-2" style={{ color: '#b76e79' }}>{relatedProject.title}</h3>
-            <p className="text-gray-600">{relatedProject.description}</p>
+            {relatedProjects.map((project, i) => (
+              <div
+                key={i}
+                className="border border-[#b76e79] rounded-xl p-4 bg-white shadow"
+              >
+                <h3 className="text-lg font-bold mb-2" style={{ color: '#b76e79' }}>
+                  {project.title}
+                </h3>
+                <p className="text-gray-600">{project.description}</p>
+              </div>
+            ))}
           </motion.div>
         )}
       </section>
