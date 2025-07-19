@@ -3,12 +3,11 @@ import { motion } from "framer-motion";
 
 export default function FreelancerPortfolio() {
   const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
+  const [fullscreenMedia, setFullscreenMedia] = useState<
+    { src: string; type: 'image' | 'video' } | null
+  >(null);
 
-  const skills = [
-    "Logo Design",
-    "Web Development",
-    "Social Media Marketing"
-  ];
+  const skills = ["Logo Design", "Web Development", "Social Media Marketing"];
 
   const projects = [
     {
@@ -33,20 +32,20 @@ export default function FreelancerPortfolio() {
     },
     {
       title: "Graduation Website",
-      description: "Custom celebration/invitation site for my college graduation.",
+      description: "Custom celebration site for my college graduation.",
       relatedSkills: ["Web Development"],
       images: [
-        {src: "/images/graduation_website_home.png"},
-        {src: "/images/graduation_website_things_to_do.png"}
+        { src: "/images/graduation_website_home.png" },
+        { src: "/images/graduation_website_things_to_do.png" }
       ]
     },
     {
-    title: "Happy Hour Specials Website",
-    description: "A fun site listing happy hour deals at me and my friends' favorite local spots.",
-    relatedSkills: ["Web Development"],
-    images: [
-      { src: "/images/happy_hour_website.png", label: "Happy Hour Homepage" }
-    ]
+      title: "Happy Hour Specials Website",
+      description: "A fun site listing happy hour deals at me and my friends' favorite local spots.",
+      relatedSkills: ["Web Development"],
+      images: [
+        { src: "/images/happy_hour_website.png" }
+      ]
     },
     {
       title: "Hybris Band Branding",
@@ -83,9 +82,7 @@ export default function FreelancerPortfolio() {
 
       {/* Header */}
       <section className="relative z-10 text-center mb-10">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#b76e79]">
-          Mikayla Stokes
-        </h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#b76e79]">Mikayla Stokes</h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Freelance Designer & Developer | Logos, Websites, and Social Media Marketing
         </p>
@@ -113,10 +110,7 @@ export default function FreelancerPortfolio() {
         </div>
         {selectedSkill && (
           <div className="text-center mt-4">
-            <button
-              onClick={() => setSelectedSkill(null)}
-              className="text-sm text-[#b76e79] underline"
-            >
+            <button onClick={() => setSelectedSkill(null)} className="text-sm text-[#b76e79] underline">
               Clear Selection
             </button>
           </div>
@@ -138,7 +132,6 @@ export default function FreelancerPortfolio() {
                 <h3 className="text-lg font-bold mb-2 text-[#b76e79]">{project.title}</h3>
                 <p className="text-gray-600 mb-4">{project.description}</p>
 
-                {/* Images */}
                 {project.images && (
                   <div className="space-y-4">
                     {project.images.map((img, idx) => (
@@ -149,14 +142,14 @@ export default function FreelancerPortfolio() {
                         <img
                           src={img.src}
                           alt={img.label || 'Project image'}
-                          className="rounded-lg border border-[#b76e79] transition-transform duration-300 hover:scale-105"
+                          className="rounded-lg border border-[#b76e79] transition-transform duration-300 hover:scale-105 cursor-pointer"
+                          onClick={() => setFullscreenMedia({ src: img.src, type: 'image' })}
                         />
                       </div>
                     ))}
                   </div>
                 )}
 
-                {/* Media */}
                 {project.media && (
                   <div className="flex flex-wrap gap-4 mt-4 items-start">
                     {project.media.map((item, idx) => {
@@ -164,24 +157,31 @@ export default function FreelancerPortfolio() {
                       const isOn50IG = item.src.includes("on50_ig");
                       const isOn50TikTok = item.src.includes("on50_tiktok");
 
-                      const imageClass = `rounded-lg border border-[#b76e79] transition-transform duration-300 hover:scale-105 ${
+                      const imageClass = `rounded-lg border border-[#b76e79] transition-transform duration-300 hover:scale-105 cursor-pointer ${
                         isHybrisPhoto ? "w-full max-w-md" : ""
                       } ${
                         isOn50IG || isOn50TikTok ? "w-[48%]" : ""
                       }`;
 
                       return item.type === "image" ? (
-                        <img key={idx} src={item.src} alt="Project media" className={imageClass} />
+                        <img
+                          key={idx}
+                          src={item.src}
+                          alt="Project media"
+                          className={imageClass}
+                          onClick={() => setFullscreenMedia({ src: item.src, type: 'image' })}
+                        />
                       ) : (
                         <video
                           key={idx}
                           src={item.src}
-                          className="rounded-lg border border-[#b76e79] w-full max-w-md transition-transform duration-300 hover:scale-105"
+                          className="rounded-lg border border-[#b76e79] w-full max-w-md transition-transform duration-300 hover:scale-105 cursor-pointer"
                           autoPlay
                           loop
                           muted
                           playsInline
                           preload="metadata"
+                          onClick={() => setFullscreenMedia({ src: item.src, type: 'video' })}
                         />
                       );
                     })}
@@ -193,42 +193,33 @@ export default function FreelancerPortfolio() {
         </motion.div>
       )}
 
-      {/* Design Process */}
-      <section className="relative z-10 w-full max-w-4xl mx-auto mb-20">
-        <h2 className="text-2xl font-semibold mb-6 text-center text-[#b76e79]">My Design Process</h2>
-        <div className="flex flex-wrap justify-center items-center gap-8 text-center">
-          {["Consultation", "Sketch/Demo", "Refine", "Finalize"].map((step, i, arr) => (
-            <div key={i} className="flex items-end gap-6 relative">
-              <div className="flex flex-col items-center">
-                <div className="rounded-full w-20 h-20 flex items-center justify-center bg-[#b76e79] text-white text-2xl font-bold">
-                  {i + 1}
-                </div>
-                <p className="text-sm font-semibold text-gray-700 mt-2">{step}</p>
-              </div>
-              {i < arr.length - 1 && (
-                <div className="flex items-center" style={{ marginBottom: "3.75rem" }}>
-                  <span className="text-[#b76e79] text-6xl leading-[1rem]">→</span>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Lightbox */}
+      {fullscreenMedia && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4">
+          <button
+            onClick={() => setFullscreenMedia(null)}
+            className="absolute top-6 right-6 text-white text-4xl font-bold hover:text-gray-300"
+            aria-label="Close full screen media"
+          >
+            ×
+          </button>
 
-      {/* Tools & Software */}
-      <section className="relative z-10 w-full max-w-4xl mx-auto mb-20">
-        <h2 className="text-2xl font-semibold mb-6 text-center text-[#b76e79]">Tools & Software Used</h2>
-        <div className="flex flex-wrap justify-center gap-4">
-          {["Canva", "PicCollage", "Video Pad", "JavaScript", "Python", "HTML/CSS", "React", "VS Code"].map((tool, idx) => (
-            <div
-              key={idx}
-              className="px-4 py-2 border border-[#b76e79] rounded-xl text-sm text-[#b76e79] bg-white shadow"
-            >
-              {tool}
-            </div>
-          ))}
+          {fullscreenMedia.type === 'image' ? (
+            <img
+              src={fullscreenMedia.src}
+              alt="Fullscreen preview"
+              className="max-w-full max-h-[90vh] rounded-lg shadow-xl"
+            />
+          ) : (
+            <video
+              src={fullscreenMedia.src}
+              controls
+              autoPlay
+              className="max-w-full max-h-[90vh] rounded-lg shadow-xl"
+            />
+          )}
         </div>
-      </section>
+      )}
 
       {/* Footer */}
       <footer className="relative z-10 mt-20 text-center text-gray-500 text-sm">
