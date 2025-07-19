@@ -28,7 +28,7 @@ export default function FreelancerPortfolio() {
         { src: "/images/SxS_inspo.jpg", label: "Logo Inspiration Photo" },
         { src: "/images/SxS_sketch.jpeg", label: "Sketch" },
         { src: "/images/SxS_logo_image.png", label: "Final Logo Design" },
-        { src: "/images/SxS_logo_text.png" }
+        { src: "/images/SxS_logo_text.png", label: "Logo with Text" }
       ]
     },
     {
@@ -61,23 +61,17 @@ export default function FreelancerPortfolio() {
 
   return (
     <main className="relative min-h-screen bg-white text-gray-800 px-6 py-12 font-sans overflow-hidden">
+      {/* Background Decorations */}
       <div className="absolute top-0 left-0 h-full w-40 z-0 border-r-4 border-[#b76e79]">
-        <img
-          src="/images/bg.jpg"
-          alt="Left side detail"
-          className="w-full h-full object-cover"
-        />
+        <img src="/images/bg.jpg" alt="Left side detail" className="w-full h-full object-cover" />
       </div>
       <div className="absolute top-0 right-0 h-full w-40 z-0 border-l-4 border-[#b76e79]">
-        <img
-          src="/images/bg.jpg"
-          alt="Right side detail"
-          className="w-full h-full object-cover"
-        />
+        <img src="/images/bg.jpg" alt="Right side detail" className="w-full h-full object-cover" />
       </div>
 
+      {/* Header */}
       <section className="relative z-10 text-center mb-10">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#b76e79' }}>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#b76e79]">
           Mikayla Stokes
         </h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -88,8 +82,9 @@ export default function FreelancerPortfolio() {
         </p>
       </section>
 
+      {/* Skills Selector */}
       <section className="relative z-10 w-full max-w-4xl mx-auto mb-20">
-        <h2 className="text-2xl font-semibold mb-6 text-center" style={{ color: '#b76e79' }}>Skills</h2>
+        <h2 className="text-2xl font-semibold mb-6 text-center text-[#b76e79]">Skills</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           {skills.map((skill, i) => (
             <motion.div
@@ -104,74 +99,91 @@ export default function FreelancerPortfolio() {
             </motion.div>
           ))}
         </div>
-
-        {selectedSkill && relatedProjects.length > 0 && (
-          <motion.div
-            className="mt-10"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          >
-            <h3 className="text-xl font-bold text-center mb-4" style={{ color: '#b76e79' }}>
-              Projects
-            </h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              {relatedProjects.map((project, i) => (
-                <div
-                  key={i}
-                  className="border border-[#b76e79] rounded-xl p-4 bg-white shadow"
-                >
-                  <h3 className="text-lg font-bold mb-2" style={{ color: '#b76e79' }}>
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">{project.description}</p>
-                  {project.images && (
-                    <div className="space-y-4">
-                      {project.images.map((img, idx) => (
-                        <div key={idx}>
-                          {img.label && <h4 className="text-sm font-semibold text-[#b76e79] mb-1">{img.label}</h4>}
-                          <img
-                            src={img.src}
-                            alt={img.label || 'Project image'}
-                            className="rounded-lg border border-[#b76e79]"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                  {project.media && (
-                    <div className="flex flex-wrap gap-4 mt-4 items-start">
-                      {project.media.map((item, idx) => (
-                        item.type === "image" ? (
-                          <img
-                            key={idx}
-                            src={item.src}
-                            alt="Project media"
-                            className="rounded-lg border border-[#b76e79] w-40"
-                          />
-                        ) : (
-                          <video
-                            key={idx}
-                            src={item.src}
-                            className="rounded-lg border border-[#b76e79] w-full max-w-md"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                          />
-                        )
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </motion.div>
+        {selectedSkill && (
+          <div className="text-center mt-4">
+            <button
+              onClick={() => setSelectedSkill(null)}
+              className="text-sm text-[#b76e79] underline"
+            >
+              Clear Selection
+            </button>
+          </div>
         )}
       </section>
 
+      {/* Project Display */}
+      {selectedSkill && relatedProjects.length > 0 && (
+        <motion.div
+          className="relative z-10 w-full max-w-4xl mx-auto mb-20"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <h3 className="text-xl font-bold text-center mb-4 text-[#b76e79]">Projects</h3>
+          <div className="grid md:grid-cols-2 gap-4">
+            {relatedProjects.map((project, i) => (
+              <div key={i} className="border border-[#b76e79] rounded-xl p-4 bg-white shadow">
+                <h3 className="text-lg font-bold mb-2 text-[#b76e79]">{project.title}</h3>
+                <p className="text-gray-600 mb-4">{project.description}</p>
+
+                {/* Images */}
+                {project.images && (
+                  <div className="space-y-4">
+                    {project.images.map((img, idx) => (
+                      <div key={idx}>
+                        {img.label && (
+                          <h4 className="text-sm font-semibold text-[#b76e79] mb-1">{img.label}</h4>
+                        )}
+                        <img
+                          src={img.src}
+                          alt={img.label || 'Project image'}
+                          className="rounded-lg border border-[#b76e79] transition-transform duration-300 hover:scale-105"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Media */}
+                {project.media && (
+                  <div className="flex flex-wrap gap-4 mt-4 items-start">
+                    {project.media.map((item, idx) => {
+                      const isHybrisPhoto = item.src.includes("hybris_photo");
+                      const isOn50IG = item.src.includes("on50_ig");
+                      const isOn50TikTok = item.src.includes("on50_tiktok");
+
+                      const imageClass = `rounded-lg border border-[#b76e79] transition-transform duration-300 hover:scale-105 ${
+                        isHybrisPhoto ? "w-full max-w-md" : ""
+                      } ${
+                        isOn50IG || isOn50TikTok ? "w-[48%]" : ""
+                      }`;
+
+                      return item.type === "image" ? (
+                        <img key={idx} src={item.src} alt="Project media" className={imageClass} />
+                      ) : (
+                        <video
+                          key={idx}
+                          src={item.src}
+                          className="rounded-lg border border-[#b76e79] w-full max-w-md transition-transform duration-300 hover:scale-105"
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          preload="metadata"
+                        />
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      )}
+
+      {/* Design Process */}
       <section className="relative z-10 w-full max-w-4xl mx-auto mb-20">
-        <h2 className="text-2xl font-semibold mb-6 text-center" style={{ color: '#b76e79' }}>My Design Process</h2>
+        <h2 className="text-2xl font-semibold mb-6 text-center text-[#b76e79]">My Design Process</h2>
         <div className="flex flex-wrap justify-center items-center gap-8 text-center">
           {["Consultation", "Sketch/Demo", "Refine", "Finalize"].map((step, i, arr) => (
             <div key={i} className="flex items-end gap-6 relative">
@@ -191,8 +203,9 @@ export default function FreelancerPortfolio() {
         </div>
       </section>
 
+      {/* Tools & Software */}
       <section className="relative z-10 w-full max-w-4xl mx-auto mb-20">
-        <h2 className="text-2xl font-semibold mb-6 text-center" style={{ color: '#b76e79' }}>Tools & Software Used</h2>
+        <h2 className="text-2xl font-semibold mb-6 text-center text-[#b76e79]">Tools & Software Used</h2>
         <div className="flex flex-wrap justify-center gap-4">
           {["Canva", "PicCollage", "Video Pad", "JavaScript", "Python", "HTML/CSS", "React", "VS Code"].map((tool, idx) => (
             <div
@@ -205,6 +218,7 @@ export default function FreelancerPortfolio() {
         </div>
       </section>
 
+      {/* Footer */}
       <footer className="relative z-10 mt-20 text-center text-gray-500 text-sm">
         © {new Date().getFullYear()} Mikayla Stokes. All rights reserved.
       </footer>
