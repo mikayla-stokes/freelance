@@ -33,8 +33,20 @@ export default function FreelancerPortfolio() {
     },
     {
       title: "Graduation Website",
-      description: "Custom celebration site for my college graduation.",
-      relatedSkills: ["Web Development"]
+      description: "Custom celebration/invitation site for my college graduation.",
+      relatedSkills: ["Web Development"],
+      images: [
+        {src: "/images/graduation_website_home.png"},
+        {src: "/images/graduation_website_things_to_do.png"}
+      ]
+    },
+    {
+    title: "Happy Hour Specials Website",
+    description: "A fun site listing happy hour deals at me and my friends' favorite local spots.",
+    relatedSkills: ["Web Development"],
+    images: [
+      { src: "/images/happy_hour_website.png", label: "Happy Hour Homepage" }
+    ]
     },
     {
       title: "Hybris Band Branding",
