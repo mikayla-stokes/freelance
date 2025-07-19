@@ -193,6 +193,43 @@ export default function FreelancerPortfolio() {
         </motion.div>
       )}
 
+      {/* Design Process */}
+      <section className="relative z-10 w-full max-w-4xl mx-auto mb-20">
+        <h2 className="text-2xl font-semibold mb-6 text-center text-[#b76e79]">My Design Process</h2>
+        <div className="flex flex-wrap justify-center items-center gap-8 text-center">
+          {["Consultation", "Sketch/Demo", "Refine", "Finalize"].map((step, i, arr) => (
+            <div key={i} className="flex items-end gap-6 relative">
+              <div className="flex flex-col items-center">
+                <div className="rounded-full w-20 h-20 flex items-center justify-center bg-[#b76e79] text-white text-2xl font-bold">
+                  {i + 1}
+                </div>
+                <p className="text-sm font-semibold text-gray-700 mt-2">{step}</p>
+              </div>
+              {i < arr.length - 1 && (
+                <div className="flex items-center" style={{ marginBottom: "3.75rem" }}>
+                  <span className="text-[#b76e79] text-6xl leading-[1rem]">→</span>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Tools & Software */}
+      <section className="relative z-10 w-full max-w-4xl mx-auto mb-20">
+        <h2 className="text-2xl font-semibold mb-6 text-center text-[#b76e79]">Tools & Software Used</h2>
+        <div className="flex flex-wrap justify-center gap-4">
+          {["Canva", "PicCollage", "Video Pad", "JavaScript", "Python", "HTML/CSS", "React", "VS Code"].map((tool, idx) => (
+            <div
+              key={idx}
+              className="px-4 py-2 border border-[#b76e79] rounded-xl text-sm text-[#b76e79] bg-white shadow"
+            >
+              {tool}
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Lightbox */}
       {fullscreenMedia && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4">
